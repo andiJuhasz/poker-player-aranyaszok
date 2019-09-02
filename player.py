@@ -18,7 +18,9 @@ class Player:
         game_cards = hole_cards + community_cards
 
         game_ranks = [game_card["rank"] for game_card in game_cards]
+        hole_ranks = [hole_card["rank"] for hole_card in hole_cards]
         log(game_ranks)
+        log(hole_ranks)
 
 
 
