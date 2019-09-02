@@ -3,7 +3,7 @@ import random
 
 
 class Player:
-    VERSION = "1.1 random "
+    VERSION = "1.2 "
 
     def betRequest(self, game_state):
         log("OUR LOG**************************************************************************************************")
