@@ -19,13 +19,13 @@ def fold(game_state):
     return 0
 
 
-def call(game_state):
-    current_buy_in = game_state["current_buy_in"]
-    players = game_state["players"]
-    return current_buy_in - players[in_action][bet]
+# def call(game_state):
+#     current_buy_in = game_state["current_buy_in"]
+#     players = game_state["players"]
+#     return current_buy_in - players[in_action][bet]
 
 
-def raise():
+# def raise():
 
 
 def log(message):
