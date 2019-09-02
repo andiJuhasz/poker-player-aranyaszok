@@ -8,6 +8,7 @@ class Player:
 
     def betRequest(self, game_state):
         log(game_state["players"])
+        log("dfgoiufgllidfudfiusdoiusdi")
 
         return random.randint(0, 100)
 
