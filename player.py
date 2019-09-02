@@ -41,7 +41,8 @@ class Player:
         if max_of_a_kind > 1:
             raise_amount = raise_(game_state, max_of_a_kind)
             return raise_amount
-        return random.randint(0, 100)
+        else:
+            return call(game_state)
 
 
 def showdown(self, game_state):
@@ -56,8 +57,22 @@ def raise_(game_state, max_of_a_kind):
     current_buy_in = game_state["current_buy_in"]
     players = game_state["players"]
     in_action = game_state["in_action"]
-    return current_buy_in - players[in_action]["bet"] + (10 * max_of_a_kind)
+    plus_bet = 0
+    if max_of_a_kind == 2:
+        plus_bet = 3
+    elif max_of_a_kind == 3:
+        plus_bet = 50
+    elif max_of_a_kind == 4:
+        plus_bet = 150
+    minimum_raise = game_state["minimum_raise"]
 
+    return current_buy_in - players[in_action]["bet"] + minimum_raise + plus_bet
+
+def call(game_state):
+    current_buy_in = game_state["current_buy_in"]
+    players = game_state["players"]
+    in_action = game_state["in_action"]
+    return current_buy_in - players[in_action]["bet"]
 
 def log(message):
     import sys
