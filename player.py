@@ -6,7 +6,7 @@ class Player:
     VERSION = "1.1 random "
 
     def betRequest(self, game_state):
-        log("HOLE CARDS\n" + game_state["players"][0]["hole_cards"])
+        log("HOLE CARDS\n" + game_state["players"][0])
         log("dfgoiufgllidfudfiusdoiusdi")
 
         return random.randint(0, 100)
