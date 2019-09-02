@@ -1,6 +1,20 @@
 from __future__ import print_function
 import random
 
+values = {"2": 2,
+          "3": 3,
+          "4": 4,
+          "5": 5,
+          "6": 6,
+          "7": 7,
+          "8": 8,
+          "9": 9,
+          "10": 10,
+          "J": 11,
+          "Q": 12,
+          "K": 13,
+          "A": 14}
+
 
 class Player:
     VERSION = "1.2 "
@@ -21,27 +35,19 @@ class Player:
         hole_ranks = [hole_card["rank"] for hole_card in hole_cards]
         log(game_ranks)
         log(hole_ranks)
+        amount_of_same_rank = []
+        for rank in hole_ranks:
+            amount_of_same_rank.append(game_ranks.count(rank))
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+        max_of_a_kind = max(amount_of_same_rank)
+        if max_of_a_kind > 1:
+            return raise (game_state, max_of_a_kind)
 
         return random.randint(0, 100)
 
-    def showdown(self, game_state):
-        pass
+
+def showdown(self, game_state):
+    pass
 
 
 def fold(game_state):
@@ -50,11 +56,14 @@ def fold(game_state):
 
 # def call(game_state):
 #     current_buy_in = game_state["current_buy_in"]
-#     players = game_state["players"]
-#     return current_buy_in - players[in_action][bet]
+# players = game_state["players"]
+# return current_buy_in - players[in_action][bet]
 
 
-# def raise():
+def raise(game_state, max_of_a_kind):
+    current_buy_in = game_state["current_buy_in"]
+    players = game_state["players"]
+    return current_buy_in - players["in_action"]["bet"] + (current_buy_in * max_of_a_kind)
 
 
 def log(message):
