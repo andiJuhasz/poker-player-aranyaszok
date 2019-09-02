@@ -45,9 +45,8 @@ class Player:
         else:
             return call(game_state)
 
-
-def showdown(self, game_state):
-    pass
+    def showdown(self, game_state):
+        pass
 
 
 def fold(game_state):
