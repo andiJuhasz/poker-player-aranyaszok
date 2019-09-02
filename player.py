@@ -7,7 +7,7 @@ class Player:
 
     def betRequest(self, game_state):
         log("dfgoiufgllidfudfiusdoiusdi")
-        log(game_state["players"][0]["hole_cards"][0]["rank"])
+        log(game_state["players"][1]["hole_cards"][0]["rank"])
 
         return random.randint(0, 100)
 
