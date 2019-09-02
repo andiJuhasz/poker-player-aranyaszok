@@ -7,8 +7,6 @@ class Player:
 
     def betRequest(self, game_state):
         log("dfgoiufgllidfudfiusdoiusdi")
-
-        log(game_state["players"][1]["hole_cards"][0]["rank"])
         players = game_state["players"]
         for player in players:
             if player["name"] == "AranyAszok":
