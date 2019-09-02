@@ -34,7 +34,7 @@
       },
       {
           "id": 1,
-          "name": "Bob",
+          "name": "AranyAszok",
           "status": "active",
           "version": "Default random player",
           "stack": 1590,
@@ -46,7 +46,7 @@
                   "suit": "hearts"
               },
               {
-                  "rank": "K",
+                  "rank": "6",
                   "suit": "spades"
               }
           ]

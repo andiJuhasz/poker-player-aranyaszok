@@ -22,7 +22,6 @@ class Player:
     def betRequest(self, game_state):
         log("OUR LOG**************************************************************************************************")
         players = game_state["players"]
-
         community_cards = game_state["community_cards"]
         hole_cards = []
         for player in players:
@@ -30,7 +29,6 @@ class Player:
                 hole_cards = player["hole_cards"]
 
         game_cards = hole_cards + community_cards
-
         game_ranks = [game_card["rank"] for game_card in game_cards]
         hole_ranks = [hole_card["rank"] for hole_card in hole_cards]
         log(game_ranks)
@@ -41,7 +39,8 @@ class Player:
 
         max_of_a_kind = max(amount_of_same_rank)
         if max_of_a_kind > 1:
-            return raise (game_state, max_of_a_kind)
+            raise_amount = raise_(game_state, max_of_a_kind)
+            return raise_amount
 
         return random.randint(0, 100)
 
@@ -54,16 +53,11 @@ def fold(game_state):
     return 0
 
 
-# def call(game_state):
-#     current_buy_in = game_state["current_buy_in"]
-# players = game_state["players"]
-# return current_buy_in - players[in_action][bet]
-
-
-def raise(game_state, max_of_a_kind):
+def raise_(game_state, max_of_a_kind):
     current_buy_in = game_state["current_buy_in"]
     players = game_state["players"]
-    return current_buy_in - players["in_action"]["bet"] + (current_buy_in * max_of_a_kind)
+    in_action = game_state["in_action"]
+    return current_buy_in - players[in_action]["bet"] + (current_buy_in * max_of_a_kind)
 
 
 def log(message):
