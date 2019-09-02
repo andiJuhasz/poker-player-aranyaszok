@@ -6,11 +6,35 @@ class Player:
     VERSION = "1.1 random "
 
     def betRequest(self, game_state):
-        log("dfgoiufgllidfudfiusdoiusdi")
+        log("OUR LOG**************************************************************************************************")
         players = game_state["players"]
+
+        community_cards = game_state["community_cards"]
+        hole_cards = []
         for player in players:
             if player["name"] == "AranyAszok":
-                log(player["hole_cards"])
+                hole_cards = player["hole_cards"]
+
+        game_cards = hole_cards + community_cards
+
+        game_ranks = [game_card["rank"] for game_card in game_cards]
+        log(game_ranks)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
         return random.randint(0, 100)
 
