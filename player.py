@@ -41,7 +41,6 @@ class Player:
         if max_of_a_kind > 1:
             raise_amount = raise_(game_state, max_of_a_kind)
             return raise_amount
-
         return random.randint(0, 100)
 
 
@@ -57,7 +56,7 @@ def raise_(game_state, max_of_a_kind):
     current_buy_in = game_state["current_buy_in"]
     players = game_state["players"]
     in_action = game_state["in_action"]
-    return current_buy_in - players[in_action]["bet"] + (current_buy_in * max_of_a_kind)
+    return current_buy_in - players[in_action]["bet"] + (10 * max_of_a_kind)
 
 
 def log(message):
