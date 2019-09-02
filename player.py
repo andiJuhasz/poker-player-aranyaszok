@@ -66,7 +66,7 @@ def raise_(game_state, max_of_a_kind):
         plus_bet = 150
     minimum_raise = game_state["minimum_raise"]
 
-    return min([250, current_buy_in - players[in_action]["bet"] + minimum_raise + plus_bet])
+    return min([1500, current_buy_in - players[in_action]["bet"] + minimum_raise + plus_bet])
 
 
 def call(game_state):
