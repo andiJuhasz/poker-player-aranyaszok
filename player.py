@@ -41,6 +41,7 @@ class Player:
         if max_of_a_kind > 1:
             raise_amount = raise_(game_state, max_of_a_kind)
             return raise_amount
+
         else:
             return call(game_state)
 
@@ -66,13 +67,15 @@ def raise_(game_state, max_of_a_kind):
         plus_bet = 150
     minimum_raise = game_state["minimum_raise"]
 
-    return current_buy_in - players[in_action]["bet"] + minimum_raise + plus_bet
+    return min([250, current_buy_in - players[in_action]["bet"] + minimum_raise + plus_bet])
+
 
 def call(game_state):
     current_buy_in = game_state["current_buy_in"]
     players = game_state["players"]
     in_action = game_state["in_action"]
     return current_buy_in - players[in_action]["bet"]
+
 
 def log(message):
     import sys
